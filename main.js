@@ -23,8 +23,6 @@ export default defineComponent({
   },
 
   setup(props: { size: string }, { attrs }) {
-    const name = '${icon.pascalCasedComponentName}'
-
     const size: String =
       props.size.slice(-1) === 'x'
         ? props.size.slice(0, props.size.length - 1) + 'em'
@@ -36,6 +34,7 @@ export default defineComponent({
 
     return () =>
       h('svg', {
+        iconName: '${icon.pascalCasedComponentName}',
         xmlns: 'http://www.w3.org/2000/svg',
         width: '24',
         height: '24',
