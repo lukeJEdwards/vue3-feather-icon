@@ -4,11 +4,17 @@
 
 ## Install
 
-`npm i vue3-feather-icons`
+```sh
+npm i vue3-feather-icons
+```
 
-`pnpm i vue3-feather-icons`
+```sh
+pnpm i vue3-feather-icons
+```
 
-`yarn add vue3-feather-icons`
+```sh
+yarn add vue3-feather-icons
+```
 
 ## Usage
 
