@@ -1,0 +1,45 @@
+{
+  "name": "vue3-feather-icons",
+  "version": "1.0.1",
+  "description": "Vue 3 compoentes for feather-icons",
+  "keywords": [
+    "Vue3",
+    "Vue 3",
+    "Vue",
+    "VueJS",
+    "feather-icons",
+    "icons",
+    "vue3-feather-icons"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue3-feather-icons.umd.js",
+  "module": "./dist/vue3-feather-icons.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue3-feather-icons.es.js",
+      "require": "./dist/vue3-feather-icons.umd.js"
+    }
+  },
+  "homepage": "https://github.com/LukeJEdwards/vue3-feather-icons#readme",
+  "url": "https://github.com/lukeJEdwards/vue3-feather-icons/issues",
+  "email": "lukeedwards30167116@gmail.com",
+  "license": "(MIT OR Apache-2.0)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LukeJEdwards/vue3-feather-icons.git"
+  },
+  "scripts": {
+    "build": "npm run build:icons && npm run build:dist",
+    "build:dist": "vite build",
+    "build:icons": "node main.js"
+  },
+  "devDependencies": {
+    "feather-icons": "^4.29.0",
+    "fs-extra": "^10.1.0",
+    "pascal-case": "^3.1.2",
+    "vite": "^2.9.5",
+    "vue": "^3.2.33"
+  }
+}
