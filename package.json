@@ -1,6 +1,6 @@
 {
   "name": "vue3-feather-icons",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Vue 3 compoentes for feather-icons",
   "keywords": [
     "Vue3",
@@ -27,8 +27,7 @@
   "email": "lukeedwards30167116@gmail.com",
   "license": "MIT",
   "repository": {
-    "type": "git",
-    "url": "https://github.com/lukeJEdwards/vue3-feather-icon.git"
+    "url": "git://github.com/lukeJEdwards/vue3-feather-icon.git"
   },
   "scripts": {
     "build": "npm run build:icons && npm run build:dist",
