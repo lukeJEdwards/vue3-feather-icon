@@ -1,0 +1,76 @@
+@use './colours' as *;
+@use './fonts' as *;
+@use './media_query' as *;
+
+@forward './components';
+
+:root {
+  @each $screenSize, $font-size in $typescale {
+    @if $screenSize == small {
+      @each $size, $value in $font-size {
+        --fs-#{$size}: #{$value};
+      }
+    } @else {
+      @include mq(small) {
+        @each $size, $value in $font-size {
+          --fs-#{$size}: #{$value};
+        }
+      }
+    }
+  }
+}
+
+.dark {
+  @each $colour, $shades in map-get($colours, 'dark') {
+    @each $shade, $value in $shades {
+      --clr-#{$colour}-#{$shade}: #{$value};
+    }
+  }
+}
+.light {
+  @each $colour, $shades in map-get($colours, 'light') {
+    @each $shade, $value in $shades {
+      --clr-#{$colour}-#{$shade}: #{$value};
+    }
+  }
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  color: var(--clr-text-300);
+  background-color: var(--clr-background-300);
+}
+
+input,
+button {
+  font-family: 'Noto Sans', sans-serif;
+  &:focus {
+    outline: none;
+  }
+}
+
+.accent {
+  color: var(--clr-primary-300);
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+.icons-search {
+  display: flex;
+  flex-direction: column;
+  margin: 0 2rem 2rem 2rem;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-text-500);
+  cursor: pointer;
+  &:hover {
+    color: var(--clr-primary-200);
+  }
+}

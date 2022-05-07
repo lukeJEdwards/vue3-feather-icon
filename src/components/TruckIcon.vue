@@ -4,9 +4,9 @@
     :width="data.width"
     :height="data.height"
     viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
+    :fill="data.fill"
+    :stroke="data.stroke"
+    :stroke-width="data.strokeWidth"
     stroke-linecap="round"
     stroke-linejoin="round"
   >
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-  import { watch } from '@vue/runtime-core'
+  import { computed, reactive, watch } from 'vue'
 
   export default {
     name: 'TruckIcon',
@@ -34,22 +34,31 @@
       }
     },
     setup(props, { attrs }) {
-      const size =
+      const size = computed(() =>
         props.size.slice(-1) === 'x'
           ? props.size.slice(0, props.size.length - 1) + 'em'
           : parseInt(props.size) + 'px'
+      )
 
-      const data = {}
-      data.width = attrs.width || size
-      data.height = attrs.height || size
+      const data = reactive({
+        width: attrs.width || size.value,
+        width: attrs.height || size.value,
+        fill: attrs.fill || 'none',
+        stroke: attrs.stroke || 'currentColor',
+        strokeWidth: attrs.strokeWidth || '2'
+      })
 
       watch(
-        () => props.size,
-        newSize => {
-          data.width = newSize
-          data.height = newSize
+        () => [props.size, attrs],
+        () => {
+          data.width = attrs.width || size.value
+          data.width = attrs.height || size.value
+          data.fill = attrs.fill || 'none'
+          data.stroke = attrs.stroke || 'currentColor'
+          data.strokeWidth = attrs.strokeWidth || '2'
         }
       )
+      return { data }
     }
   }
 </script>
